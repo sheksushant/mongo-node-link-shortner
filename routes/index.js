@@ -10,7 +10,10 @@ router.get('/', function(req, res, next) {
 router.post('/',function(req, res) {
  console.log(req.body);
  mongo.newLink(req.body.id,req.body.link);
- res.render('index');
+ //var result = document.getElementById("result");
+
+res.render('index');
+ //result.text('URL Set');
  });
 
  router.get('/:id' , (req,res)=> {
