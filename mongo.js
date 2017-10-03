@@ -1,6 +1,5 @@
 var MongoClient = require('mongodb').MongoClient;
 
-
 var newLink = function(id,link){
 var url = 'mongodb://localhost:27017/projects';
 MongoClient.connect(url, function(err, db) {
@@ -43,13 +42,10 @@ var insertlink = function(id,link,db, callback) {
     collection.insertMany([
       {"id" : id, "link": link}
     ], function(err, result) {
-      console.log("Inserted");
+      //console.log("Inserted");
      // callback(result);
     });
   }
 
-  var redirectlink = function(id,db, callback) {
-
-  }
 //redirect('sushant').then(function(res,err){console.log(res)}).catch(function(){console.log('doesnotexist');});
   module.exports = {newLink,redirect};
