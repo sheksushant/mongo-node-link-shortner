@@ -11,7 +11,7 @@ router.get('/', function(req, res, next) {
 
 router.post('/',function(req, res) {
 let start = req.body.link.substring(0, 3);
-console.log(start);
+console.log(req.body);
 if(start === 'www') {
   link = `http://${req.body.link}`;
 }
@@ -25,8 +25,9 @@ if(start != 'www' && start != 'htt') {
 
 mongo.newLink(req.body.id,link);
 //var result = document.getElementById("result");
-
-res.render('index');
+mssg = 'URL Set!';
+res.render('index',{ title: 'justshrink.me' , mssg : mssg});
+mssg = ' ';
  });
 
 router.get('/:id' , (req,res)=> {
